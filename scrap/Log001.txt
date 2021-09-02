@@ -1,0 +1,1 @@
+This is a test log in scrap for CEG 4350 so that I can test out git commands.
