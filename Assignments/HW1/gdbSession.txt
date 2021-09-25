@@ -1,0 +1,129 @@
+Script started on 2021-09-24 22:24:34-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ git [K[K[K[Kgdb P0
+[?2004l[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 10.1-2ubuntu2) [m[35;1m10.1.90.20210411-git[m[35;1m
+[m[mCopyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32mP0[m...
+[?2004h(gdb) b 356
+[?2004lBreakpoint 1 at [34m0x67f2[m: file [32mshell.cpp[m, line 356.
+[?2004h(gdb) run
+[?2004lStarting program: /home/thonkerpad/Documents/CEG4350/Assignments/HW1/P0 
+
+Breakpoint 1, [33mmain[m () at [32mshell.cpp[m:356
+356	[31m{[m
+[?2004h[?2004l[?2004h(gdb) git [K[K[K[Kn
+[?2004l359	  [01musage[m[31m();[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004lThe shell has only the following cmds:
+	cd	s
+	cp	ss
+	echo	ssss
+	inode	u
+	ls	
+	lslong	
+	mkdir	s
+	mkdisk	s
+	mkfs	s
+	mount	us
+	mount	
+	mv	ss
+	rddisk	su
+	rmdir	s
+	rm	s
+	pwd	
+	q	
+	quit	
+	umount	u
+	wrdisk	sus
+Start with ! to invoke a Unix shell cmd
+361	    [31m*[mbuf [31m=[m [35m0[m[31m;[m			[36m// clear old input[m
+[?2004h[?2004l[?2004h(gdb) print buf
+[?2004l$1 = "p\363\372\367\377\177\000\000\000\000\000\000\000\000\000\000P\225\374\367\377\177\000\000_s\375\367\377\177\000\000\377\377\377\377\000\000\000\000\320{\375\367\377\177\000\000x\336\271\367\377\177\000\000\250\360\326\367\377\177\000\000 \336\377\377\377\177\000\000\350\336\377\377\377\177\000\000\370\336\377\377\377\177\000\000\070\351\371\367\377\177\000\000\000\000\000\000\000\000\000\000W\237\375\367\377\177\000\000\001", '\000' <repeats 15 times>, "\001\000\000\000\000\000\000\000p\226\374\367\377\177\000\000\000\336\377\377\377\177\000\000\256\032\376\367\377\177\000\000\360\003\327\367\377\177\000\000\000\374\326\367\377\177\000\000\060\036\302\367\377\177\000\000 \336\377\377\377\177\000\000\036", '\000' <repeats 16 times>...
+[?2004h(gdb) print [K[K[K[K[K[Kn
+[?2004l362	    [01mprintf[m[31m([m[31m"%s"[m[31m,[m [31m"sh33% "[m[31m);[m	[36m// prompt[m
+[?2004h[?2004l[?2004h(gdb) print buf
+[?2004l$2 = "\000\363\372\367\377\177\000\000\000\000\000\000\000\000\000\000P\225\374\367\377\177\000\000_s\375\367\377\177\000\000\377\377\377\377\000\000\000\000\320{\375\367\377\177\000\000x\336\271\367\377\177\000\000\250\360\326\367\377\177\000\000 \336\377\377\377\177\000\000\350\336\377\377\377\177\000\000\370\336\377\377\377\177\000\000\070\351\371\367\377\177\000\000\000\000\000\000\000\000\000\000W\237\375\367\377\177\000\000\001", '\000' <repeats 15 times>, "\001\000\000\000\000\000\000\000p\226\374\367\377\177\000\000\000\336\377\377\377\177\000\000\256\032\376\367\377\177\000\000\360\003\327\367\377\177\000\000\000\374\326\367\377\177\000\000\060\036\302\367\377\177\000\000 \336\377\377\377\177\000\000\036", '\000' <repeats 16 times>...
+[?2004h(gdb) pring [K[Kt args[K
+[?2004l$3 = {{[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[m
+    [m[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[m
+    [m[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}}
+[?2004h(gdb) print types
+[?2004l$4 = "\000\000\000\000\000\000\000\000\000\000"
+[?2004h(gdb) pring[Kt [K nArgs
+[?2004l$5 = 0
+[?2004h(gdb) n
+[?2004l363	    [01mourgets[m[31m([mbuf[31m);[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004lsh33% mkfs D1
+364	    [01mprintf[m[31m([m[31m"cmd [%s][m[35m\n[m[31m"[m[31m,[m buf[31m);[m	[36m// just print out what we got as-is[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004lcmd [mkfs D1]
+365	    [01;34mif[m [31m([mbuf[31m[[m[35m0[m[31m][m [31m==[m [35m0[m[31m)[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l367	    [01;34mif[m [31m([mbuf[31m[[m[35m0[m[31m][m [31m==[m [31m'#'[m[31m)[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l369	    [01;34mif[m [31m([mbuf[31m[[m[35m0[m[31m][m [31m==[m [31m'!'[m[31m)[m		[36m// begins with !, execute it as[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l372	      [01msetArgsGiven[m[31m([mbuf[31m,[m arg[31m,[m types[31m,[m nArgsMax[31m);[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l373	      [32mint[m k [31m=[m [01mfindCmd[m[31m([mbuf[31m,[m types[31m);[m
+[?2004h[?2004l[?2004h(gdb) print buf
+[?2004l$6 = "mkfs\000D1\000\000\000\000\000\000\000\000\000P\225\374\367\377\177\000\000_s\375\367\377\177\000\000\377\377\377\377\000\000\000\000\320{\375\367\377\177\000\000x\336\271\367\377\177\000\000\250\360\326\367\377\177\000\000 \336\377\377\377\177\000\000\350\336\377\377\377\177\000\000\370\336\377\377\377\177\000\000\070\351\371\367\377\177\000\000\000\000\000\000\000\000\000\000W\237\375\367\377\177\000\000\001", '\000' <repeats 15 times>, "\001\000\000\000\000\000\000\000p\226\374\367\377\177\000\000\000\336\377\377\377\177\000\000\256\032\376\367\377\177\000\000\360\003\327\367\377\177\000\000\000\374\326\367\377\177\000\000\060\036\302\367\377\177\000\000 \336\377\377\377\177\000\000\036", '\000' <repeats 16 times>...
+[?2004h(gdb) print arg
+[?2004l$7 = {{[36ms[m = [34m0x7fffffffd9e5[m "D1", [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[m
+    [m[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[m
+    [m[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}, {[36ms[m = [34m0x0[m, [36mu[m = 0}}
+[?2004h(gdb) print buf[K[K[KnA[K[K[K types
+[?2004l$8 = "s\000\000\000\000\000\000\000\000\000"
+[?2004h(gdb) print nArgs
+[?2004l$9 = 1
+[?2004h(gdb) n
+[?2004l374	      [01;34mif[m [31m([mk [31m>=[m [35m0[m[31m)[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l375		[01minvokeCmd[m[31m([mk[31m,[m arg[31m);[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004lmake33fv() = 0x5555555728e0, Name == D1, Disk# == 2
+361	    [31m*[mbuf [31m=[m [35m0[m[31m;[m			[36m// clear old input[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l362	    [01mprintf[m[31m([m[31m"%s"[m[31m,[m [31m"sh33% "[m[31m);[m	[36m// prompt[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l363	    [01mourgets[m[31m([mbuf[31m);[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004lsh33% !ls
+364	    [01mprintf[m[31m([m[31m"cmd [%s][m[35m\n[m[31m"[m[31m,[m buf[31m);[m	[36m// just print out what we got as-is[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004lcmd [!ls]
+365	    [01;34mif[m [31m([mbuf[31m[[m[35m0[m[31m][m [31m==[m [35m0[m[31m)[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l367	    [01;34mif[m [31m([mbuf[31m[[m[35m0[m[31m][m [31m==[m [31m'#'[m[31m)[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l369	    [01;34mif[m [31m([mbuf[31m[[m[35m0[m[31m][m [31m==[m [31m'!'[m[31m)[m		[36m// begins with !, execute it as[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l370	      [01msystem[m[31m([mbuf [31m+[m [35m1[m[31m);[m		[36m// a normal shell cmd[m
+[?2004h[?2004l[?2004h(gdb) n
+[?2004l[Detaching after vfork from child process 4773]
+bitvector.cpp  diskParams.dat  inodes.o   Part2Questions.txt  simdisk.o
+bitvector.o    file.cpp        Makefile   read.me	      typescript
+D1.dsk	       file.o	       mount.cpp  shell.cpp	      user.cpp
+directory.cpp  fs33types.hpp   mount.o	  shell.o	      volume.cpp
+directory.o    inodes.cpp      P0	  simdisk.cpp	      volume.o
+361	    [31m*[mbuf [31m=[m [35m0[m[31m;[m			[36m// clear old input[m
+[?2004h[?2004l[?2004h(gdb) q
+[?2004l[?2004hA debugging session is active.
+
+	Inferior 1 [process 4749] will be killed.
+
+Quit anyway? (y or n) y
+[?2004l[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsessi on[K[A]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K[A]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1[00m$ cat typescript > gdbsession[K]0;thonkerpad@pop-os
