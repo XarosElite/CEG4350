@@ -279,6 +279,7 @@ void usage()
 
 void invokeCmd(int k, Arg *arg)
 {
+
   uint ok = 1;
   if (cmdTable[k].globalsNeeded[0] == 'v' && cwdVNIN == 0) {
     ok = 0;
@@ -312,6 +313,9 @@ void invokeCmd(int k, Arg *arg)
 
 void setArgsGiven(char *buf, Arg *arg, char *types, uint nMax)
 {
+
+  // CATCH REDIRECTION HERE ?
+
   for (uint i = 0; i < nMax; i++) {
     arg[i].s = 0;
     types[i] = 0;
@@ -320,7 +324,8 @@ void setArgsGiven(char *buf, Arg *arg, char *types, uint nMax)
 
   strtok(buf, " \t\n");		// terminates the cmd name with a \0
 
-  for (uint i = 0; i < nMax;) {
+  
+  for (uint i = 0; i < nMax;)  {
       char *q = strtok(0, " \t");
       if (q == 0 || *q == 0) break;
       arg[i].s = q;
@@ -352,9 +357,35 @@ void ourgets(char *buf) {
   if (p) *p = 0;
 }
 
+void argChecker(char *buf, uint nMax){
+  bool redirect = 0;
+  strtok(buf, " \t\n");		// terminates the cmd name with a \0
+  for (uint i = 0; i < nMax;) {
+      char *q = strtok(0, " \t");
+      if (q == 0 || *q == 0) break;
+
+      //Check for Redirection
+      if(strcmp(q, ">") == 0){
+        printf("\nGOTCHA\n"); 
+        redirect = 1;
+        q = 0;
+        continue;
+        }
+      if(redirect){
+        printf(q);
+        //int fd = open(q, O_WRONLY);
+        //dup2(fd, 1);
+        q = 0;
+        continue;
+        }
+  }
+}
+
 int main()
 {
   char buf[1024];		// better not type longer than 1023 chars
+  int saved_stdout;
+  
 
   usage();
   for (;;) {
@@ -369,12 +400,63 @@ int main()
     if (buf[0] == '!')		// begins with !, execute it as
       system(buf + 1);		// a normal shell cmd
     else {
+      
+      //argChecker(buf, nArgsMax);
       setArgsGiven(buf, arg, types, nArgsMax);
+
+      bool redirect = 0;
+      for (uint i = 0; i < nArgsMax; i++)
+      {
+       
+       if (arg[i].s == NULL){
+         continue;
+       }
+       
+        if(arg[i].s[0] == '>')
+        {
+          //printf("%s", arg[i+1].s);
+          char *tempRedirct =arg[i+1].s;
+          int fd = open(tempRedirct, O_RDWR);
+          saved_stdout = dup(1);
+          dup2(fd,1);
+          //printf("WHY AM I WORKING");
+          arg[i].s = NULL;
+          arg[i+1].s = NULL;
+          types[i] = NULL;
+          types[i+1] = NULL;
+          nArgs = nArgs - 2;
+          redirect = 1;
+          break;
+        }
+        
+        
+      }
+      
+
+
       int k = findCmd(buf, types);
-      if (k >= 0)
-	invokeCmd(k, arg);
-      else
-	usage();
+      if (k >= 0){
+      //if redirection true
+      //make file desc to given file
+      //dup2(fd, 1)
+        
+	      invokeCmd(k, arg);
+
+        if (redirect)
+        {
+          dup2(saved_stdout, 1);
+          close(saved_stdout);
+        }
+        
+        
+        } 
+      else{
+        if(redirect){
+          dup2(saved_stdout, 1);
+          close(saved_stdout);
+        }
+        usage();
+      }
     }
   }
 }
