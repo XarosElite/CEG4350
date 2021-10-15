@@ -1,0 +1,33 @@
+#These are the descriptions for commands in part 2 of HW1
+
+                        --- Part1 ---
+dup2 - This function is used to duplicate a file descriptor.
+
+creat - when given a file path, it creates an empty file.
+
+pipe - pipe's are a way for two processes to communicate through a 
+half-duplex communication. Meaning the comminication is only one way 
+between a parent and child. (Functionally it allows the output of one 
+process to become the input to another one.)
+
+fork - Fork creates a new process that is a duplicate of the one that
+called it. It is now the 'child' process of the process that called 
+it.
+
+pthread_create - Creates a thread in the calling process.
+
+system - Executes a chell command.
+
+printf - Prints arguments to the stout but has arguments that allow 
+you to format the output.
+
+
+                        --- Part2 ---
+In the file shell.cpp, the last line in the invokeCmd() function runs
+the apropriate function from the cmdTable with the arguments, as long
+as the needed simDisk and cfv exist and the args for the function are 
+acceptable.
+
+                        --- Part3 ---
+    See ---> | gdbSession.txt |
+

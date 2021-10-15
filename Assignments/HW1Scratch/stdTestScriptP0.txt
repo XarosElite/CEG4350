@@ -1,9 +1,8 @@
 # stdTestScriptP0.txt
+!rm -f test.txt
 mkfs D2
 ls
 ls > test.txt
 !cat test.txt
-!time
 !sleep 15 &
-!time
 quit

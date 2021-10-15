@@ -382,10 +382,10 @@ void argChecker(char *buf, uint nMax){
 }
 
 
-
 int main()
 {
   char buf[1024];		// better not type longer than 1023 chars
+  char buf2[1024];
   //char buf2[1024];
   int saved_stdout;
   
@@ -393,153 +393,156 @@ int main()
   usage();
   for (;;) {
     *buf = 0;			// clear old input
+    *buf2 = 0;
+
+    for (int i = 0; i < 1024; i++)
+    {
+      buf[i] = 0;
+      buf2[i] = 0;
+    }
+    
+
     printf("%s", "sh33% ");	// prompt
     ourgets(buf);
 
-    // for (int i = 0; i < 1024; i++)
-    // {
-    //   buf2[i] = buf[i];
-    // }
-    
-    
     printf("cmd [%s]\n", buf);	// just print out what we got as-is
-    // for (int i = 0; buf2[i] != 0; i++)
-    // {
-    //   if (buf2[i] == '>')
-    //   {
-        
-    //   }
-      
-    // }
     
-
-
     if (buf[0] == 0)
       continue;
     if (buf[0] == '#')
       continue;			// this is a comment line, do nothing
-     if (buf[0] == '!')		// begins with !, execute it as
-       system(buf + 1);		// a normal shell cmdntents of the file test o
+
+    int placeInbuf = 0;
+    char CharHit = 0;
+    bool pipeChild = 0;
+    
+    
+    while(buf[placeInbuf] != 0){
+      if (buf[placeInbuf] == '>' || buf[placeInbuf] == '|' || buf[placeInbuf] == '&')
+      {
+        if (buf[placeInbuf] == '>')
+          CharHit = '>';
+        if (buf[placeInbuf] == '|')
+          CharHit = '|';
+        if (buf[placeInbuf] == '&')
+          CharHit = '&';       
+        break;
+      }
+      buf2[placeInbuf] = buf[placeInbuf];
+      placeInbuf++;
+    }
+
+    if(CharHit == '>')
+    {
+      char *tempRedirct = strtok(buf+placeInbuf+1, " \t\n");
+      int fd = open(tempRedirct, O_RDWR | O_CREAT | O_APPEND , 0777);
+      saved_stdout = dup(1);
+      dup2(fd,1);
+    }
+    if(CharHit == '&'){
+      bool ischild = fork();
+      if(ischild == 0){
+     
+      }else{
+        continue;
+
+      }
+
+    }if(CharHit == '|'){
+      int filedes[2];
+      if(pipe(filedes) < 0){
+            exit(1);
+          }
+
+      if(fork() == 0){
+        close(filedes[1]);
+        dup2(filedes[0], STDIN_FILENO);
+        pipeChild = 1;
+
+        while(buf[placeInbuf] != 0){
+          placeInbuf++;
+          buf2[placeInbuf] = buf[placeInbuf];
+          printf("INFINITY AND BEYOND");
+        }
+        
+        
+
+
+      }else{
+        close(filedes[0]);
+        dup2(filedes[1], STDOUT_FILENO);
+
+
+
+
+      }
+
+
+    }
+    
+    
+
+    if (buf2[0] == '!'){		// begins with !, execute it as
+     system(buf2 + 1);		// a normal shell cmdntents of the file test o
+     if (CharHit == '&')
+     {
+       exit(0);
+     }
+     if(CharHit == '>'){
+      dup2(saved_stdout, 1);
+      close(saved_stdout);
+     }if(pipeChild){
+       dup2(saved_stdout, 1);
+       close(saved_stdout);
+       exit(0);
+     }
+     if(!pipeChild && CharHit == '|'){
+       dup2(saved_stdout, 1);
+       close(saved_stdout);
+       //exit(0);
+     }
+     }
     else {
       
-      //argChecker(buf, nArgsMax);
-      setArgsGiven(buf, arg, types, nArgsMax);
-
-      bool redirect = 0;
-      bool runBackground = 0;
-      for (uint i = 0; i < nArgsMax; i++)
-      {
-       
-       if (arg[i].s == NULL){
-         continue;
-       }
-       
-        if(arg[i].s[0] == '>')
-        {
-          //printf("%s", arg[i+1].s);
-          char *tempRedirct =arg[i+1].s;
-          int fd = open(tempRedirct, O_RDWR);
-          saved_stdout = dup(1);
-          dup2(fd,1);
-          //printf("WHY AM I WORKING");
-          arg[i].s = NULL;
-          arg[i+1].s = NULL;
-          types[i] = NULL;
-          types[i+1] = NULL;
-          nArgs = nArgs - 2;
-          redirect = 1;
-          break;
-        }if (arg[i].s[0] == '|')
-        {
-          /* PIPING ACTION*/
-          int filedes[2];
-          if(pipe(filedes) < 0){
-            exit(1);
-          } 
-
-          if(fork() == 0){
-            //IS PARENTif(fork() == 0){
-            //Setup to run the command before |
-            //Make output
-            close(filedes[0]);
-            dup2(filedes[1], STDOUT_FILENO);
-            
-
-            
-            arg[i].s = NULL;
-            arg[i+1].s = NULL;
-            types[i] = NULL;
-            types[i+1] = NULL;
-            //buf[i] = NULL;
-            //buf[i+1] = NULL;
-            nArgs = nArgs - 2;
-            
-            
-    
-          }else{
-            //IS CHILD
-            //Setup to run the command after |
-            close(filedes[1]);
-            dup2(filedes[0], STDIN_FILENO);
-            
-            
-            //*buf = *buf + i + 1;
-            //setArgsGiven(buf, arg, types, nArgsMax);
-
-
-
-          }
-          break;
-        }if(arg[i].s[0] == '&'){
-          
-          arg[i].s = NULL;
-          types[i] = NULL;
-          if(fork() == 0){
-            
-          }else{
-            
-          }
-
-
-        }
-          
-        
-        
-      }
       
-      if (buf[0] == '!')
-      {
-        system(buf + 1);
-        //dup2(saved_stdout, 1);
-        //close(saved_stdout);
-        continue;
-      }
-      if(runBackground){
-
-        continue;
-      }
+      setArgsGiven(buf2, arg, types, nArgsMax);
+      
       
 
-      int k = findCmd(buf, types);
+      int k = findCmd(buf2, types);
       if (k >= 0){
-      //if redirection true
-      //make file desc to given file
-      //dup2(fd, 1)
-        
+
 	      invokeCmd(k, arg);
 
-        if (redirect)
-        {
+        if(CharHit == '>'){
           dup2(saved_stdout, 1);
           close(saved_stdout);
         }
-        
-        
-        } 
-      else{
-        if(redirect){
+        if (CharHit == '&')
+        {
+          exit(0);
+        }
+        if(pipeChild){
           dup2(saved_stdout, 1);
           close(saved_stdout);
+          exit(0);
+        }
+        
+
+
+        } 
+      else{
+        if(CharHit == '>'){
+          dup2(saved_stdout, 1);
+          close(saved_stdout);
+        }
+        if (CharHit == '&')
+        {
+          exit(0);
+        }if(pipeChild){
+          dup2(saved_stdout, 1);
+          close(saved_stdout);
+          exit(0);
         }
         usage();
       }

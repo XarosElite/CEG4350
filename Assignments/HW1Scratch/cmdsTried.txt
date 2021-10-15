@@ -1,0 +1,127 @@
+Script started on 2021-10-05 22:10:06-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ ls
+[?2004lanswers.txt    directory.cpp   gdbSession.txt  [0m[01;32mP0[0m           stdTestScriptP0.txt
+bitvector.cpp  directory.o     inodes.cpp      read.me      test.txt
+bitvector.o    diskParams.dat  inodes.o        shell.cpp    textp
+cmdsTried.txt  file.cpp        Makefile        shell.o      user.cpp
+D1.dsk         file.o          mount.cpp       simdisk.cpp  volume.cpp
+D2.dsk         fs33types.hpp   mount.o         simdisk.o    volume.o
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ ls | grep p
+[?2004lbitvector.c[01;31m[Kp[m[K[01;31m[Kp[m[K
+directory.c[01;31m[Kp[m[K[01;31m[Kp[m[K
+file.c[01;31m[Kp[m[K[01;31m[Kp[m[K
+fs33ty[01;31m[Kp[m[Kes.h[01;31m[Kp[m[K[01;31m[Kp[m[K
+inodes.c[01;31m[Kp[m[K[01;31m[Kp[m[K
+mount.c[01;31m[Kp[m[K[01;31m[Kp[m[K
+shell.c[01;31m[Kp[m[K[01;31m[Kp[m[K
+simdisk.c[01;31m[Kp[m[K[01;31m[Kp[m[K
+stdTestScri[01;31m[Kp[m[KtP0.txt
+text[01;31m[Kp[m[K
+user.c[01;31m[Kp[m[K[01;31m[Kp[m[K
+volume.c[01;31m[Kp[m[K[01;31m[Kp[m[K
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ env
+[?2004lSHELL=/bin/bash
+SESSION_MANAGER=local/pop-os:@/tmp/.ICE-unix/2563,unix/pop-os:/tmp/.ICE-unix/2563
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-pop:/etc/xdg
+SSH_AGENT_LAUNCHER=gnome-keyring
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GTK_IM_MODULE=ibus
+LANGUAGE=en_US:en
+MANDATORY_PATH=/usr/share/gconf/pop.mandatory.path
+LC_ADDRESS=en_US.UTF-8
+GNOME_SHELL_SESSION_MODE=pop
+LC_NAME=en_US.UTF-8
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=pop
+LC_MONETARY=en_US.UTF-8
+GTK_MODULES=gail:atk-bridge:appmenu-gtk-module
+PWD=/home/thonkerpad/Documents/CEG4350/Assignments/HW1Scratch
+XDG_SESSION_DESKTOP=pop
+LOGNAME=thonkerpad
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/thonkerpad
+USERNAME=thonkerpad
+LANG=en_US.UTF-8
+LC_PAPER=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+XDG_CURRENT_DESKTOP=pop:GNOME
+VTE_VERSION=6203
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/103d0218_cfa9_4a69_be2c_0d381c28f376
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+LC_IDENTIFICATION=en_US.UTF-8
+TERM=xterm-256color
+DEFAULTS_PATH=/usr/share/gconf/pop.default.path
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=thonkerpad
+GNOME_TERMINAL_SERVICE=:1.96
+DISPLAY=:1
+SHLVL=2
+LC_TELEPHONE=en_US.UTF-8
+QT_IM_MODULE=ibus
+LC_MEASUREMENT=en_US.UTF-8
+PAPERSIZE=letter
+XDG_RUNTIME_DIR=/run/user/1000
+LC_TIME=en_US.UTF-8
+XDG_DATA_DIRS=/usr/share/pop:/home/thonkerpad/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/home/thonkerpad/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+GDMSESSION=pop
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+LC_NUMERIC=en_US.UTF-8
+OLDPWD=/home/thonkerpad
+_=/usr/bin/env
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ w
+[?2004l 22:10:32 up 5 min,  1 user,  load average: 0.63, 1.55, 0.85
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+thonkerp :1       :1               22:05   ?xdm?   2:07   0.00s /usr/libexec/gd
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ time
+[?2004l
+real	0m0.000s
+user	0m0.000s
+sys	0m0.000s
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ ps
+[?2004l    PID TTY          TIME CMD
+   3835 pts/1    00:00:00 bash
+   3849 pts/1    00:00:00 ps
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ make
+[?2004lmake: 'P0' is up to date.
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ bash
+[?2004l[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ du
+[?2004l856	.
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ df
+[?2004lFilesystem     1K-blocks     Used Available Use% Mounted on
+tmpfs             795692     1780    793912   1% /run
+/dev/sda3       20666188 17408316   2185028  89% /
+tmpfs            3978456        0   3978456   0% /dev/shm
+tmpfs               5120        4      5116   1% /run/lock
+tmpfs               4096        0      4096   0% /sys/fs/cgroup
+/dev/sda1         508932   330848    178084  66% /boot/efi
+/dev/sda2        4186100  2340332   1845768  56% /recovery
+tmpfs             795688      132    795556   1% /run/user/1000
+[?2004h]0;thonkerpad@pop-os: ~/Documents/CEG4350/Assignments/HW1Scratch[01;32mthonkerpad@pop-os[00m:[01;34m~/Documents/CEG4350/Assignments/HW1Scratch[00m$ set[K[K[Kman pipe
+[?2004l[?1049h[22;0;0t[?1h=PIPE(2)                    Linux Programmer's Manual                   PIPE(2)[m
+[m
+[1mNAME[0m[m
+       pipe, pipe2 - create pipe[m
+[m
+[1mSYNOPSIS[0m[m
+       [1m#include[0m [1m<unistd.h>[0m[m
+[m
+       /* On Alpha, IA-64, MIPS, SuperH, and SPARC/SPARC64; see NOTES */[m
+       [1mstruct[0m [1mfd_pair[0m [1m{[0m[m
+           [1mlong[0m [1mfd[2];[0m[m
+       [1m};[0m[m
+       [1mstruct[0m [1mfd_pair[0m [1mpipe();[0m[m
+[m
+       /* On all other architectures */[m
+       [1mint[0m [1mpipe(int[0m [4mpipefd[24m[1m[2]);[0m[m
+[m
+       [1m#define[0m [1m_GNU_SOURCE[0m             /* See feature_test_macros(7) */[m
+       [1m#include[0m [1m<fcntl.h>[0m              /* Ob
